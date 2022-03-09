@@ -6,6 +6,7 @@
 
 body {
     font-family: "Roboto", sans-serif;
+    font-size: 1.3rem;
     display: flex;
     margin: 0;
     flex-direction: column;
@@ -22,4 +23,28 @@ body {
     height: 90vh;
     width: 90vw;
     border: 1px green solid;
+}
+
+.button-area {
+    position: relative;
+    bottom: 0;
+    height: 200px;
+    width: 90vw;
+    border: yellow 1px solid;
+}
+
+.all-but {
+    background-color: rgb(236, 222, 222);
+    color: black;
+    width: 90vw;
+    height: 50px;
+    text-align: center;
+    justify-content: center;
+    font-size: 2rem;
+}
+.button1 {
+    background-color: limegreen;
+}
+.button2 {
+    background-color: rgb(205, 50, 50);
 }

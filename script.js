@@ -43,14 +43,14 @@ const printOut = function (message, color = "white") {
 };
 
 const timeDelay = function (message) {
-    setTimeout(() => {
-        console.log("begin!");
-        let thisMessage;
-        for (let o = 0; o < message.length; o++) {
+    console.log("begin!");
+    let thisMessage;
+    for (let o = 0; o < message.length; o++) {
+        setTimeout(() => {
             thisMessage += message.slice(o, o + 1);
             console.log(thisMessage);
-        }
-    }, 100);
+        }, 20000);
+    }
 };
 
 printOut("Welcome, Adventurer! 🏰");
@@ -61,10 +61,11 @@ printOut(`Your name is ${character.charName}`, "cyan");
 printOut(`You carry a ${inventory[0].weapon}`, "green");
 inventory[0].shield ? printOut("You also have a shield 🛡", "green") : null;
 printOut(
-    `Neither are very good. You will need better equipment to take on the ${
-        enemy3.enemyName
-    }${"<img src=${enemy3.enemyPic}></img>"}. In the You Die Arena 🏟`
+    `Neither are very good. You will have to find better equipment to take on the ${enemy3.enemyName}`
 );
+
+printOut(`<img src=${enemy3.enemyPic}>`);
+printOut(`In the Death Arena...`);
 printOut(`You have ${character.charLife} ♥️ Life remaining.`, "green");
 printOut(
     `You are carrying 💊 ${inventory[0]["health potion"]} health ${

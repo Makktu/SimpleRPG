@@ -17,3 +17,9 @@ body {
     background-color: rgb(19, 17, 17);
     color: rgb(236, 222, 222);
 }
+
+.container {
+    height: 90vh;
+    width: 90vw;
+    border: 1px green solid;
+}

@@ -1,15 +1,21 @@
 "use strict";
 
+const container = document.querySelector(".container");
+
 const printOut = function (message) {
-    console.log(message);
+    container.innerHTML += `<br>${message}`;
 };
 
 const timeDelay = function (duration) {
-    // stuff
+    setTimeout(() => {}, duration);
 };
 
-printOut("Welcome, Adventurer");
+printOut("Welcome, Adventurer! 🏰");
 
 timeDelay(5);
 
-printOut("Please enter your name:");
+printOut(
+    "Do you want to enter a name? (One will be chosen at random for you if you choose No.)"
+);
+
+printOut(`<span style="font-size:2rem;">YES / NO</span>`);

@@ -22,8 +22,9 @@ let enemy2 = {
     enemyLife: 10,
 };
 let enemy3 = {
-    enemyName: "Dreadful Ogre 👿",
+    enemyName: "Dreadful Ogre",
     enemyLife: 20,
+    enemyPic: `/images/dreadfulogre.png`,
 };
 
 const container = document.querySelector(".container");
@@ -54,7 +55,9 @@ printOut(`Your name is ${character.charName}`, "cyan");
 printOut(`You carry a ${inventory[0].weapon}`, "green");
 inventory[0].shield ? printOut("You also have a shield 🛡", "green") : null;
 printOut(
-    `Neither are very good. You will need better equipment to take on the ${enemy3.enemyName}. In the You Die Arena 🏟`
+    `Neither are very good. You will need better equipment to take on the ${
+        enemy3.enemyName
+    }${"<img src=${enemy3.enemyPic}></img>"}. In the You Die Arena 🏟`
 );
 printOut(`You have ${character.charLife} ♥️ Life remaining.`, "green");
 printOut(

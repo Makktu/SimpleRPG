@@ -1,5 +1,8 @@
 "use strict";
 
+// ************************************
+// ********* GAME VARIABLE INITS ******
+// ************************************
 let character = {
     charName: "Addy",
     charLife: 10,
@@ -26,6 +29,9 @@ let enemy3 = {
     enemyLife: 20,
     enemyPic: `/images/dreadfulogre.png`,
 };
+// ************************************
+// ************************************
+// ************************************
 
 const container = document.querySelector(".container");
 

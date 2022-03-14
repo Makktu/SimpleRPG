@@ -3,6 +3,8 @@
 // ************************************
 // ********* GAME VARIABLE INITS ******
 // ************************************
+let nextColor = false;
+let color = "green";
 let character = {
     charName: "Addy",
     charLife: 10,
@@ -10,7 +12,8 @@ let character = {
 
 let inventory = [
     {
-        weapon: "sword ⚔️",
+        weapon: "sword",
+        weaponIcon: "⚔️",
         shield: true,
         "health potion": 3,
     },
@@ -35,45 +38,62 @@ let enemy3 = {
 
 const container = document.querySelector(".container");
 
-const printOut = function (message, color = "white") {
-    message == "blank"
-        ? (container.innerHTML += "<br><br>")
-        : (container.innerHTML += `<span style="color:${color}"><br>⟫  ${message}</span>`);
-    console.log(message.length);
-};
+// *********************************************
+// ******* THE FAMOUS PRINTOUT FUNCTION ********
+// *********************************************
 
-const timeDelay = function (message) {
-    console.log("begin!");
-    let thisMessage;
-    for (let o = 0; o < message.length; o++) {
-        setTimeout(() => {
-            thisMessage += message.slice(o, o + 1);
-            console.log(thisMessage);
-        }, 20000);
+const printWithDelay = function (charToShow, letter) {
+    if (nextColor) {
+        if (charToShow === "y") color = "yellow";
+        if (charToShow === "g") color = "green";
+        if (charToShow === "w") color = "white";
+        // if (charToShow === "r") color = "red";
+        console.log("Here?", charToShow, color);
+
+        nextColor = false;
+        return;
     }
+    if (charToShow == "#") {
+        // ! this is where we somehow leverage the embedded color info in the messages to make that entire line that color...
+        nextColor = true;
+        return;
+    }
+    setTimeout(function () {
+        if (charToShow != "|")
+            container.innerHTML += `<span style="color:${color}">${charToShow}</span>`;
+        if (charToShow == "|") container.innerHTML += `<br>`;
+        console.log(color);
+    }, letter * 70);
 };
 
-printOut("Welcome, Adventurer! 🏰");
+const printOut = function (message) {
+    for (let letter = 0; letter < message.length; letter++) {
+        printWithDelay(message[letter], letter);
+    }
+    container.innerHTML += `<br>`;
+    // : (container.innerHTML += `<span style="color:${color}"><br>⟫  ${message}</span>`);
+};
 
-timeDelay("Testing");
+let introMessage = `#g Welcome, Adventurer! 🏰 | Your name is ${character.charName} | #g You carry a ${inventory[0].weapon}${inventory[0].weaponIcon} | You also have a shield 🛡️ | #w Neither are very good. | You will have to find better equipment to take on the ${enemy3.enemyName}... | #r In the Arena of Death.`;
 
-printOut(`Your name is ${character.charName}`, "cyan");
-printOut(`You carry a ${inventory[0].weapon}`, "green");
-inventory[0].shield ? printOut("You also have a shield 🛡", "green") : null;
-printOut(
-    `Neither are very good. You will have to find better equipment to take on the ${enemy3.enemyName}`
-);
+printOut(introMessage);
 
-printOut(`<img src=${enemy3.enemyPic}>`);
-printOut(`In the Death Arena...`);
-printOut(`You have ${character.charLife} ♥️ Life remaining.`, "green");
-printOut(
-    `You are carrying 💊 ${inventory[0]["health potion"]} health ${
-        inventory[0]["health potion"] > 1 ? "packs" : "pack"
-    }.`,
-    "green"
-);
+// printOut(`}`, "green");
+// inventory[0].shield ? printOut("You also have a shield 🛡️", "green") : null;
+// printOut(
+//     `Neither are very good.  You will have to find better equipment to take on the ${enemy3.enemyName}.`
+// );
 
-printOut("blank");
+// // printOut(`<img src=${enemy3.enemyPic}>`, "image");
+// printOut(`In the Death Arena...`);
+// printOut(`You have ${character.charLife} Life remaining.`, "green");
+// printOut(
+//     `You are carrying ${inventory[0]["health potion"]} health ${
+//         inventory[0]["health potion"] > 1 ? "packs" : "pack"
+//     }.`,
+//     "green"
+// );
 
-printOut("Tap 'BEGIN' to, ah, begin...", "yellow");
+// printOut("blank");
+
+// printOut("Tap 'BEGIN' to, ah, begin...", "yellow");

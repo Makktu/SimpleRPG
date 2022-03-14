@@ -4,7 +4,7 @@
 // ********* GAME VARIABLE INITS ******
 // ************************************
 let nextColor = false;
-let color = "green";
+let color = "white";
 let character = {
     charName: "Addy",
     charLife: 10,
@@ -42,39 +42,33 @@ const container = document.querySelector(".container");
 // ******* THE FAMOUS PRINTOUT FUNCTION ********
 // *********************************************
 
-const printWithDelay = function (charToShow, letter) {
-    if (nextColor) {
-        if (charToShow === "y") color = "yellow";
-        if (charToShow === "g") color = "green";
-        if (charToShow === "w") color = "white";
-        // if (charToShow === "r") color = "red";
-        console.log("Here?", charToShow, color);
-
-        nextColor = false;
-        return;
-    }
+const printWithDelay = function (charToShow, letter, message) {
     if (charToShow == "#") {
         // ! this is where we somehow leverage the embedded color info in the messages to make that entire line that color...
-        nextColor = true;
-        return;
+        if (message[letter - 1] == "#") return;
+        if (message[letter] == "#") {
+            if (message[letter + 1] == "y") color = "yellow";
+            // if (charToShow === "g") color = "green";
+            // if (charToShow === "w") color = "white";
+            // if (charToShow === "r") color = "red";
+        }
     }
     setTimeout(function () {
         if (charToShow != "|")
             container.innerHTML += `<span style="color:${color}">${charToShow}</span>`;
         if (charToShow == "|") container.innerHTML += `<br>`;
         console.log(color);
-    }, letter * 70);
+    }, letter * 35);
 };
 
 const printOut = function (message) {
     for (let letter = 0; letter < message.length; letter++) {
-        printWithDelay(message[letter], letter);
+        printWithDelay(message[letter], letter, message);
     }
     container.innerHTML += `<br>`;
-    // : (container.innerHTML += `<span style="color:${color}"><br>⟫  ${message}</span>`);
 };
 
-let introMessage = `#g Welcome, Adventurer! 🏰 | Your name is ${character.charName} | #g You carry a ${inventory[0].weapon}${inventory[0].weaponIcon} | You also have a shield 🛡️ | #w Neither are very good. | You will have to find better equipment to take on the ${enemy3.enemyName}... | #r In the Arena of Death.`;
+let introMessage = `#g Welcome, Adventurer! 🏰 | Your name is ${character.charName} | #g You carry a ${inventory[0].weapon}${inventory[0].weaponIcon} | You also have a shield 🛡️ | #w Neither are very good. | You will have to find better equipment to take on the ${enemy3.enemyName}...👿 | #r In the Arena of Death! 💀`;
 
 printOut(introMessage);
 

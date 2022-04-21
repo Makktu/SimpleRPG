@@ -54,3 +54,16 @@ body {
 .button4 {
     background-color: rgb(143, 177, 19);
 }
+
+.player-move {
+    font-size: 2rem;
+}
+
+.touchable {
+    font-size: 1.5rem;
+    color: yellow;
+}
+
+.item-pickup {
+    color: green;
+}

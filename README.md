@@ -8,3 +8,10 @@ Restarted this project and taken it back to basics:
 
 -   design a small 10-room location for the player to move around. Until he has been there the locations are unknown and unnamed, and named afterward.
 -   directions from each room can be North-East-South-West-Up-Down (some locations will have trapdoors down/skylights up, etc.). Will add combat and story and so on after nailing this first!
+
+Player stats:
+
+-   Health
+-   Stamina
+-   Agility
+-   Skill

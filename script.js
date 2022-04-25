@@ -14,23 +14,36 @@ const btn3 = document.querySelector(".button3");
 const btn4 = document.querySelector(".button4");
 
 btn1.addEventListener("click", () => {
-    // check that the button has an option attached to it
-
-    // if so, implement the choice
-    playerLocation = worldLocations[playerLocation].exits[0];
-    getPlayerMove(worldLocations[playerLocation + 1]);
+    if (worldLocations[playerLocation].exits[1]) {
+        playerLocation = worldLocations[playerLocation].exits[1];
+        getPlayerMove(worldLocations[playerLocation]);
+    } else {
+        container.innerHTML += "Not that way.";
+    }
 });
 btn2.addEventListener("click", () => {
-    playerLocation = worldLocations[playerLocation].exits[1];
-    getPlayerMove(worldLocations[playerLocation + 1]);
+    if (worldLocations[playerLocation].exits[1]) {
+        playerLocation = worldLocations[playerLocation].exits[1];
+        getPlayerMove(worldLocations[playerLocation]);
+    } else {
+        container.innerHTML += "Not that way.";
+    }
 });
 btn3.addEventListener("click", () => {
-    playerLocation = worldLocations[playerLocation].exits[2];
-    getPlayerMove(worldLocations[playerLocation]);
+    if (worldLocations[playerLocation].exits[2]) {
+        playerLocation = worldLocations[playerLocation].exits[2];
+        getPlayerMove(worldLocations[playerLocation]);
+    } else {
+        container.innerHTML += "Not that way.";
+    }
 });
 btn4.addEventListener("click", () => {
-    playerLocation = worldLocations[playerLocation].exits[3];
-    getPlayerMove(worldLocations[playerLocation]);
+    if (worldLocations[playerLocation].exits[3]) {
+        playerLocation = worldLocations[playerLocation].exits[3];
+        getPlayerMove(worldLocations[playerLocation]);
+    } else {
+        container.innerHTML += "Not that way.";
+    }
 });
 
 // * handles output
@@ -49,9 +62,10 @@ const renderExits = function (exits) {
 };
 
 const getPlayerMove = function (wherePlayer) {
+    console.log(worldLocations[playerLocation].exits);
     container.innerHTML = "";
     printToScreen(`You are in ${wherePlayer.placeName}.`);
-    if (worldLocations[playerLocation + 1].pickups) {
+    if (worldLocations[playerLocation].pickups) {
         let itemNow = 0;
         for (let item = 0; item < wherePlayer.pickups.length / 2; item++) {
             printToScreen(

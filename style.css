@@ -22,27 +22,52 @@ body {
 .container {
     height: 90vh;
     width: 90vw;
-    border: 1px green solid;
+}
+
+.action-zone {
+    display: flex;
+    flex-direction: row;
+    height: 10vh;
+    width: 90vw;
+}
+
+.action1,
+.action2 {
+    width: 45vw;
+    height: 7vh;
+    line-height: 7vh;
+    text-align: center;
+    /* font-size: 2rem; */
+    color: black;
+    border-radius: 20px;
+}
+
+.action1 {
+    background-color: aqua;
+}
+.action2 {
+    background-color: rgb(143, 177, 19);
 }
 
 .button-area {
     position: relative;
     bottom: 0;
     height: 200px;
+    /* line-height: 200px; */
     width: 90vw;
-    border: yellow 1px solid;
 }
 
 .all-but {
-    background-color: rgb(236, 222, 222);
+    background-color: rgb(184, 164, 164);
     color: black;
-    width: 45vw;
+    width: 90vw;
     height: 50px;
     text-align: center;
     justify-content: center;
     font-size: 2rem;
+    border-radius: 20px;
 }
-.button1 {
+/* .button1 {
     background-color: limegreen;
 }
 .button2 {
@@ -53,7 +78,7 @@ body {
 }
 .button4 {
     background-color: rgb(143, 177, 19);
-}
+} */
 
 .player-move {
     font-size: 2rem;

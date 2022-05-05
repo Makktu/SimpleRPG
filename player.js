@@ -1,3 +1,1 @@
-export let playerCharacter = {
-    // stuff here
-};
+export let playerInventory = [];
